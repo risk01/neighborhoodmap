@@ -15,17 +15,23 @@
 		<h1>Sightseeing in Santa Cruz</h1>
 			<hr>
 			<div>
-				<span class= "text"> What would you like to see?</span>
+				<span class= "text"> Where would you like to see?</span>
 				<select id="place-types" data-bind="options: places", optionsText:'$data', value: selectedPlace, optionsCaption: 'Choose'></select>
-			</div>
+		 </div>		   
+		<ul id="list-places" data-bind="foreach: locations">
+        
+            <li data-bind="text: title"></li>
+  
+        
+    </ul>
+			
 		</div>
 	</div>
 
-	
+	<script src='knockout-3.4.2.js'></script>
+	<script src="js/map.js"></script>
+	<script src="js/main.js"></script>
 	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAKsmMfMuKvajMXN3LaQ-33FZ3l94kwOqI&v=3&callback=initMap">
 	</script>
-	<script async defer type='text/javascript' src='knockout-3.4.2.js'></script>
-	<script async defer type='text/javascript' src="js/main.js"></script>
-	<script async defer type='text/javascript' src="js/map.js"></script>
 </body>
 </html>

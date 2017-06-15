@@ -75,7 +75,7 @@ function initMap() {
 function populateInfoWindow(marker, infowindow) {
 	if (infowindow.marker != marker) {
 		infowindow.marker = marker;
-		infowindow.setContent('<div>' + marker.title + '</div>''<br>' + '<a href= 'wikiUrl'>' '</a>');
+		infowindow.setContent('<div>' + marker.title + '</div><br><a href= ' + wikiUrl + '></a>');
 		infowindow.open(map, marker);
 		infowindow.addListener('closeclick', function() {
 			infowindow.marker(null);
