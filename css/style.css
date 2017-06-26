@@ -46,6 +46,8 @@ hr {
     width: 225px;
 }
 #list-places {
+    list-style: none;
+    padding: 10px 10px 30px 10px;
     font-size: 14px;
     }
 

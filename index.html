@@ -16,15 +16,12 @@
 			<hr>
 			<div>
 				<span class= "text"> Where would you like to see?</span>
-				<select id="place-types" data-bind="options: places", optionsText:'$data', value: selectedPlace, optionsCaption: 'Choose'></select>
-		 </div>		   
-		<ul id="list-places" data-bind="foreach: locations">
-        
+				<select id="place-types" data-bind="options: categories, value: selectedPlaces"></select>
+		 </div>
+		<!--  <div data-bind="visible: selectedPlaces"> -->		   
+		<ul id="list-places" data-bind="foreach: locationList">
             <li data-bind="text: title"></li>
-  
-        
     </ul>
-			
 		</div>
 	</div>
 

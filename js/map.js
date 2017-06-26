@@ -1,18 +1,18 @@
-var placeType = ["All", "Attractions", "Beaches"];
 var map;
 var markers = [];
 
 var locations = [
-	{title: 'Santa Cruz Beach Boardwalk', type: 'attraction', location: {lat: 36.964251, lng: -122.0210412}},
-	{title: 'Main Beach', type: 'beach', location: {lat: 36.9633272, lng: -122.0210184}},
-	{title: 'Santa Cruz Wharf',	type: 'attraction', location: {lat: 36.9572769, lng: -122.0172773}},
-	{title: 'Santa Cruz Surfing Museum', type: 'attraction', location: {lat: 36.951449, lng: -122.0288687}},
+
 	{title: 'Lighthouse Field State Beach', type: 'beach', location: {lat: 36.9516112, lng: -122.0304685}},
+	{title: 'Main Beach', type: 'beach', location: {lat: 36.9633272, lng: -122.0210184}},
 	{title: 'Natural Bridges State Beach', type: 'beach', location: {lat: 36.9529053, lng: -122.058943}},
+	{title: 'Santa Cruz Beach Boardwalk', type: 'attraction', location: {lat: 36.964251, lng: -122.0210412}},
+	{title: 'Santa Cruz Surfing Museum', type: 'attraction', location: {lat: 36.951449, lng: -122.0288687}},
+	{title: 'Santa Cruz Wharf',	type: 'attraction', location: {lat: 36.9572769, lng: -122.0172773}},
 	{title: 'Seabright State Beach', type: 'beach', location: {lat: 36.9630566, lng: -122.010142}},
-	{title: 'Walton Lighthouse', type: 'attraction', location: {lat: 36.9607206, lng: -122.0022065}},
 	{title: 'Seymour Marine Discovery Center', type: 'attraction', location: {lat: 36.9507336, lng: -122.070863}},
-	{title: 'The Mystery Spot',	type: 'attraction', location: {lat: 37.0168648, lng: -122.0046967}}
+	{title: 'The Mystery Spot',	type: 'attraction', location: {lat: 37.0168648, lng: -122.0046967}},
+	{title: 'Walton Lighthouse', type: 'attraction', location: {lat: 36.9607206, lng: -122.0022065}}
 ];
 
 // Initialize map function from Udacity Course
@@ -71,11 +71,13 @@ function initMap() {
 	map.fitBounds(bounds);
 }
 
-//from Udacity API course
+//from Udacity API course: Pop up window
 function populateInfoWindow(marker, infowindow) {
 	if (infowindow.marker != marker) {
 		infowindow.marker = marker;
-		infowindow.setContent('<div>' + marker.title + '</div><br><a href= ' + wikiUrl + '></a>');
+		infowindow.setContent('<div>' + marker.title + '</div>');
+			// <br><a href= ' + wikiUrl + '></a>
+			
 		infowindow.open(map, marker);
 		infowindow.addListener('closeclick', function() {
 			infowindow.marker(null);
@@ -84,8 +86,49 @@ function populateInfoWindow(marker, infowindow) {
 	}
 }
 
+// function showAll() {
+// 	var bounds = new google.maps.LatLngBounds();
+// 	var all = locations[i].type.beach + locations[i].type.attract;
+// 	// var attract = locations[i].type.beach;
+// 	// var beach = locations[i].type.beach;
+// 	for (var i= 0; i < markers.length; i++){
+// 		if (markers[i] === markers.beach || ) {
+
+// 		}
+// 		markers[i].setMap(map);
+// 		bounds.extend(markers[i].position);
+// 	}
+// 	map.fitBounds(bounds);
+// }
+
+// function showAttractions() {
+// 	var attract = markers.attractions;
+// 	for (var i=0; i < locations.length; i++) {
+// 		if(markers[i].mall === true) {
+// 			markers[i].setVisible(true);
+// 		}
+// 		else {
+// 			markers[i].setVisible(false);
+// 		}
+// 		bounds.extend(markers[i].attract);
+// 	}
+// 	map.fitBounds(bounds);
+// }
+
+// function showBeaches() {
+// 	for (var i=0; i < locations.length; i++) {
+// 		if(markers[i].mall === true) {
+// 			markers[i].setVisible(true);
+// 		}
+// 		else {
+// 			markers[i].setVisible(false);
+// 		}
+// 		bounds.extend(markers[i].beach);
+// 	}
+// 	map.fitBounds(bounds);
+// }
 
 //Error Function in case maps doesn't load
 function mapError() {
-	alert("Oops. No maps for you right now.")
+	alert("Oops. Something wrong with your maps.")
 }

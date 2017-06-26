@@ -1,25 +1,36 @@
+// var Places = function(locations, marker) {
+// 	this.title = ko.observable(locations.title);
+// 	this.location = ko.observable(locations.location);
+// 	this.type = ko.observable(locations.type);
+// 	this.marker = data.marker;
+// }
+
 var ViewModel = function() {
 	var self = this;
 	
-	//self.places = ko.observableArray(type);
-	self.places = ko.observableArray();
-	self.place = ko.observable('');
-	self.locations= ko.observableArray(locations);
+	self.categories = ["All", "Attractions", "Beaches"];
+	self.availablePlaces = ko.observableArray();
+	self.selectedPlaces = ko.observable();
+	self.locationList= ko.observableArray(locations);
+	//self.filter = ko.observable(locations.type);
+	self.filteredPlaces = ko.computed(function() {
+		//var listPlaces = self.places();
+		//self.availablePlaces.push(new Category())
+		// for (var i=0; i < listPlaces.length; i++) {
+		//  if (self.selectedPlaces.type === "All") {
+		//  	return listPlaces;
+		//  }
+		// if (self.selectedPlaces === "Attractions") {
+		//  	listPlaces[i].isVisible(true);
+		//  	listPlaces[i].marker.setVisible(true);
+		//  }
+		//  else if(self.selectedPlaces === "Beaches") {
+		//  	listPlaces[i].isVisible(true);
+		//  	listPlaces[i].marker.setVisible(true);
+		//  }
+ 	// };
+	});
+}
 
-	self.filter = ko.observable('');
-	self.filteredPlaces = ko.computed(function(){
-		var filter = self.filter();
-		 if (filter === "All") {
-
-		 	//show all;
-		 }
-		 else if (filter === "Attractions"){
-		 	//hide Beaches
-		 }
-		 else if (filter === "Beaches"){
-		 	//hide Attractions
-		 }
-	}
-)};
 var viewModel = new ViewModel();
 ko.applyBindings(viewModel);
