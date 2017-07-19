@@ -1,9 +1,9 @@
-// var Places = function(locations, marker) {
-// 	this.title = ko.observable(locations.title);
-// 	this.location = ko.observable(locations.location);
-// 	this.type = ko.observable(locations.type);
-// 	this.marker = data.marker;
-// }
+var Places = function(locations, marker) {
+	this.title = ko.observable(locations.title);
+	this.location = ko.observable(locations.location);
+	this.type = ko.observable(locations.type);
+	this.marker = data.marker;
+}
 
 var ViewModel = function() {
 	var self = this;
@@ -12,7 +12,6 @@ var ViewModel = function() {
 	self.availablePlaces = ko.observableArray();
 	self.selectedPlaces = ko.observable();
 	self.locationList= ko.observableArray(locations);
-	//self.filter = ko.observable(locations.type);
 	self.filteredPlaces = ko.computed(function() {
 		//var listPlaces = self.places();
 		//self.availablePlaces.push(new Category())
